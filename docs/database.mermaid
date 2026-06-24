@@ -1,0 +1,90 @@
+erDiagram
+    users {
+        bigint id PK
+        varchar name
+        varchar email UK
+        timestamp email_verified_at
+        varchar password
+        varchar role "customer | super_admin | manager | staff"
+        varchar remember_token
+        varchar phone_number
+        text two_factor_secret
+        text two_factor_recovery_codes
+        timestamp two_factor_confirmed_at
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    tables {
+        bigint id PK
+        varchar table_number UK
+        int capacity
+        text location_description
+        varchar status "available | booked | maintenance | inactive"
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    menu_categories {
+        bigint id PK
+        varchar name UK
+        varchar thumbnail_path
+        int sort_order
+        varchar status "active | inactive"
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    menu_items {
+        bigint id PK
+        bigint category_id FK
+        varchar name
+        text description
+        decimal price "10,2"
+        varchar thumbnail_path
+        varchar status "available | soldout | inactive"
+        int sort_order
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    bookings {
+        bigint id PK
+        varchar booking_reference UK
+        bigint user_id FK
+        bigint table_id FK
+        json items "snapshot menu yang dipesan"
+        decimal total_amount "8,2"
+        date booking_date
+        time booking_time
+        int guest_count
+        varchar booking_status "pending | confirmed | seated | preparing | completed | cancelled | no_show"
+        varchar payment_status "pending | paid | expired | refunded"
+        text cancellation_reason
+        text note
+        varchar type
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    transactions {
+        bigint id PK
+        bigint booking_id FK
+        varchar midtrans_transaction_id UK "nullable, dari Midtrans"
+        varchar snap_token "nullable, untuk Midtrans Snap"
+        varchar payment_method
+        varchar payment_channel
+        decimal amount "12,2"
+        varchar status "pending | success | failed | expired"
+        json raw_response "nullable, webhook response dari Midtrans"
+        timestamp expired_at
+        timestamp paid_at
+        timestamp webhook_received_at
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    users ||--o{ bookings : "melakukan"
+    tables ||--o{ bookings : "di-booking"
+    bookings ||--o| transactions : "dibayar via"
+    menu_categories ||--o{ menu_items : "mengelompokkan"

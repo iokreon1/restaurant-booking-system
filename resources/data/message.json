@@ -1,0 +1,22 @@
+[
+    {
+        "event": "booking_created",
+        "message": "Halo {customer_name} 👋\n\n✨ Booking Anda berhasil dibuat!\n\n📌 Detail Reservasi:\n• Referensi: {booking_reference}\n• Tanggal: {booking_date}\n• Waktu: {booking_time}\n• Jumlah Tamu: {guest_count} Orang\n• Meja: {table_number}\n\n🍽️ Menu yang dipesan:\n{ordered_menu}\n\n💰 Total Pembayaran:\nRp {total_amount}\n\n🔗 Link pembayaran:\n{payment_url}\n\n🙏 Terima kasih telah memilih Dapur Nabilah!"
+    },
+    {
+        "event": "booking_payment_success",
+        "message": "Halo {customer_name} 👋\n\n✅ Pembayaran berhasil!\n\n📌 Detail Reservasi:\n• Referensi: {booking_reference}\n• Tanggal: {booking_date}\n• Waktu: {booking_time}\n• Jumlah Tamu: {guest_count} Orang\n• Meja: {table_number}\n\n💰 Total:\nRp {total_amount}\n\n🍽️ Kami menantikan kehadiran Anda.\nSampai jumpa di Dapur Nabilah!"
+    },
+    {
+        "event": "booking_payment_failed",
+        "message": "Halo {customer_name} 👋\n\n❌ Pembayaran gagal diproses.\n\n📌 Detail Reservasi:\n• Referensi: {booking_reference}\n• Tanggal: {booking_date}\n• Waktu: {booking_time}\n\n🔁 Silakan coba lakukan pembayaran kembali.\n📞 Atau hubungi kami jika membutuhkan bantuan.\n\n🙏 Terima kasih,\nDapur Nabilah."
+    },
+    {
+        "event": "booking_confirmed",
+        "message": "Halo {customer_name} 👋\n\n🎉 Booking Anda sudah dikonfirmasi!\n\n📌 Detail Reservasi:\n• Referensi: {booking_reference}\n• Tanggal: {booking_date}\n• Waktu: {booking_time}\n• Jumlah Tamu: {guest_count} Orang\n• Meja: {table_number}\n\n🍽️ Menu yang dipesan:\n{ordered_menu}\n\n🍽️ Meja sudah kami siapkan untuk Anda.\nSampai jumpa di Dapur Nabilah!"
+    },
+    {
+        "event": "booking_cancelled",
+        "message": "Halo {customer_name} 👋\n\n⚠️ Booking Anda telah dibatalkan.\n\n📌 Detail Reservasi:\n• Referensi: {booking_reference}\n• Tanggal: {booking_date}\n• Waktu: {booking_time}\n• Alasan: {cancellation_reason}\n\n📞 Jika ini tidak sesuai, silakan hubungi kami.\n\n🙏 Terima kasih,\nDapur Nabilah."
+    }
+]
