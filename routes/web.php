@@ -24,7 +24,7 @@ Route::get('menu/order-summary', OrderSummaryMicrosite::class)->name('microsite.
 Route::get('menu/order-reservation', OrderReservationMicrosite::class)->name('microsite.reservation');
 Route::get('menu/order-tracking', OrderTrackingMicrosite::class)->name('microsite.tracking');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verified']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verified', 'admin']], function () {
     Route::get('', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('bookings/create', BookingCreatePage::class)->name('admin.bookings.create');
     Route::get('bookings/{booking}/edit', BookingEditPage::class)->name('admin.bookings.edit');

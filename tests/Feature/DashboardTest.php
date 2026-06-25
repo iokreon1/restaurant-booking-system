@@ -9,9 +9,9 @@ test('guests are redirected to the login page', function () {
     $response->assertRedirect(route('login'));
 });
 
-test('authenticated users can visit the dashboard', function () {
+test('authenticated admin users can visit the dashboard', function () {
     /** @var User $user */
-    $user = User::factory()->create();
+    $user = User::factory()->admin()->create();
     /** @var TestCase $this */
     $this->actingAs($user);
 
@@ -28,4 +28,14 @@ test('authenticated users can visit the dashboard', function () {
         'recent_activity',
         'user',
     ]);
+});
+
+test('non-admin users are blocked from visiting the dashboard', function () {
+    /** @var User $user */
+    $user = User::factory()->create();
+    /** @var TestCase $this */
+    $this->actingAs($user);
+
+    $response = $this->get(route('dashboard'));
+    $response->assertForbidden();
 });

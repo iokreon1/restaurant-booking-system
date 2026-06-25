@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Notification;
 use Livewire\Livewire;
 
 test('bookings list includes link to booking show', function () {
-    $user = User::factory()->create();
-    $booking = Booking::factory()->create();
+    $user = User::factory()->admin()->create();
+    $booking = Booking::factory()->create(['payment_status' => Booking::PAYMENT_STATUS_PAID]);
 
     $this->actingAs($user)
         ->get(route('admin.bookings'))
@@ -26,7 +26,7 @@ test('guests are redirected to login when visiting booking show', function () {
 });
 
 test('authenticated users can view booking detail', function () {
-    $user = User::factory()->create();
+    $user = User::factory()->admin()->create();
     $booking = Booking::factory()->create();
 
     $this->actingAs($user)
@@ -37,7 +37,7 @@ test('authenticated users can view booking detail', function () {
 });
 
 test('authenticated users can see contextual booking status actions on detail page', function () {
-    $user = User::factory()->create();
+    $user = User::factory()->admin()->create();
     $booking = Booking::factory()->create([
         'booking_status' => Booking::BOOKING_STATUS_PENDING,
         'payment_status' => Booking::PAYMENT_STATUS_PENDING,
@@ -54,7 +54,7 @@ test('authenticated users can see contextual booking status actions on detail pa
 test('authenticated users can update booking status using allowed sequential action', function () {
     Notification::fake();
 
-    $user = User::factory()->create();
+    $user = User::factory()->admin()->create();
     $booking = Booking::factory()->create([
         'booking_status' => Booking::BOOKING_STATUS_PENDING,
         'payment_status' => Booking::PAYMENT_STATUS_PENDING,
@@ -80,7 +80,7 @@ test('authenticated users can update booking status using allowed sequential act
 test('authenticated users can cancel booking and send cancellation notification', function () {
     Notification::fake();
 
-    $user = User::factory()->create();
+    $user = User::factory()->admin()->create();
     $booking = Booking::factory()->create([
         'booking_status' => Booking::BOOKING_STATUS_PENDING,
         'payment_status' => Booking::PAYMENT_STATUS_PENDING,
@@ -97,7 +97,7 @@ test('authenticated users can cancel booking and send cancellation notification'
 });
 
 test('authenticated users cannot skip booking status flow', function () {
-    $user = User::factory()->create();
+    $user = User::factory()->admin()->create();
     $booking = Booking::factory()->create([
         'booking_status' => Booking::BOOKING_STATUS_PENDING,
         'payment_status' => Booking::PAYMENT_STATUS_PENDING,

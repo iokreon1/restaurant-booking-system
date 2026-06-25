@@ -18,7 +18,7 @@ test('guests are redirected to login when visiting admin livewire pages', functi
 })->with('admin pages');
 
 test('authenticated users can visit each admin livewire page', function (string $routeName, string $heading) {
-    $user = User::factory()->create();
+    $user = User::factory()->admin()->create();
 
     $this->actingAs($user)
         ->get(route($routeName))
@@ -26,8 +26,16 @@ test('authenticated users can visit each admin livewire page', function (string 
         ->assertSee($heading);
 })->with('admin pages');
 
-test('dashboard sidebar contains links to all admin modules', function () {
+test('non-admin users are blocked from visiting admin livewire pages', function (string $routeName) {
     $user = User::factory()->create();
+
+    $this->actingAs($user)
+        ->get(route($routeName))
+        ->assertForbidden();
+})->with('admin pages');
+
+test('dashboard sidebar contains links to all admin modules', function () {
+    $user = User::factory()->admin()->create();
 
     $response = $this->actingAs($user)->get(route('dashboard'));
 

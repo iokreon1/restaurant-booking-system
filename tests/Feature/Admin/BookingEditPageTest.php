@@ -15,7 +15,7 @@ test('guests cannot access booking edit page', function () {
 });
 
 test('authenticated user can open booking edit page', function () {
-    $user = User::factory()->create();
+    $user = User::factory()->admin()->create();
     $menuItem = MenuItem::factory()->create(['status' => MenuItem::STATUS_AVAILABLE]);
     $booking = Booking::factory()->create([
         'items' => [
@@ -38,7 +38,7 @@ test('authenticated user can open booking edit page', function () {
 });
 
 test('booking edit page saves items via BookingService', function () {
-    $user = User::factory()->create();
+    $user = User::factory()->admin()->create();
     $table = Table::factory()->create();
     $menuItemA = MenuItem::factory()->create(['status' => MenuItem::STATUS_AVAILABLE, 'price' => 50000]);
     $menuItemB = MenuItem::factory()->create(['status' => MenuItem::STATUS_AVAILABLE, 'price' => 25000]);

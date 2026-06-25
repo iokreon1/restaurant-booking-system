@@ -120,12 +120,14 @@ test('admin bookings list orders by booking created_at newest first', function (
     $older = Booking::factory()->create([
         'user_id' => $guest->id,
         'table_id' => $table->id,
+        'payment_status' => Booking::PAYMENT_STATUS_PAID,
     ]);
     $older->forceFill(['created_at' => now()->subDays(3)])->saveQuietly();
 
     $newer = Booking::factory()->create([
         'user_id' => $guest->id,
         'table_id' => $table->id,
+        'payment_status' => Booking::PAYMENT_STATUS_PAID,
     ]);
     $newer->forceFill(['created_at' => now()->subDay()])->saveQuietly();
 
@@ -149,6 +151,7 @@ test('admin bookings page always shows pagination summary in footer', function (
     Booking::factory()->create([
         'user_id' => $guest->id,
         'table_id' => $table->id,
+        'payment_status' => Booking::PAYMENT_STATUS_PAID,
     ]);
 
     Livewire::actingAs($this->admin)
