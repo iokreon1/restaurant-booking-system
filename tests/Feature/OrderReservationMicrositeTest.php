@@ -154,3 +154,26 @@ it('validates the notes length before proceeding to summary', function () {
             'notes' => ['max'],
         ]);
 });
+
+it('allows the customer to select outdoor area and shows outdoor tables', function () {
+    $indoorTable = Table::query()->create([
+        'table_number' => 'A-01',
+        'capacity' => 2,
+        'location_description' => 'Indoor - Window seat',
+        'status' => Table::STATUS_AVAILABLE,
+    ]);
+
+    $outdoorTable = Table::query()->create([
+        'table_number' => 'B-01',
+        'capacity' => 2,
+        'location_description' => 'Outdoor garden view',
+        'status' => Table::STATUS_AVAILABLE,
+    ]);
+
+    Livewire::test(OrderReservationMicrosite::class)
+        ->assertSet('selectedArea', 'indoor')
+        ->assertSet('selectedTableId', $indoorTable->id)
+        ->set('selectedArea', 'outdoor')
+        ->assertSet('selectedArea', 'outdoor')
+        ->assertSet('selectedTableId', $outdoorTable->id);
+});

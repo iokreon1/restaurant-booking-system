@@ -127,6 +127,20 @@
                 @error('selectedTableId')
                     <p class="text-sm font-medium text-error">{{ $message }}</p>
                 @enderror
+                
+                <div class="flex gap-2">
+                    <button type="button" 
+                            wire:click="$set('selectedArea', 'indoor')" 
+                            class="flex-1 py-2.5 text-sm font-headline font-bold rounded-lg transition-all {{ $selectedArea === 'indoor' ? 'bg-[#2D6A4F] text-white' : 'bg-surface-container-high text-on-surface-variant' }}">
+                        Indoor
+                    </button>
+                    <button type="button" 
+                            wire:click="$set('selectedArea', 'outdoor')" 
+                            class="flex-1 py-2.5 text-sm font-headline font-bold rounded-lg transition-all {{ $selectedArea === 'outdoor' ? 'bg-[#2D6A4F] text-white' : 'bg-surface-container-high text-on-surface-variant' }}">
+                        Outdoor
+                    </button>
+                </div>
+
                 <div class="flex flex-col gap-3 max-h-[500px] overflow-y-auto hide-scrollbar -mx-1 px-1">
                     @forelse ($this->tables as $table)
                         @php($tableInputId = 'table-selection-'.$table['id'])
