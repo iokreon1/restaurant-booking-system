@@ -25,7 +25,7 @@ test('booked table card links Manage Order to booking edit page', function () {
         ->assertOk()
         ->assertSee('Manage Order')
         ->assertSee($editUrl)
-        ->assertDontSee('wire:click="openEdit');
+        ->assertDontSee('Assign Table');
 });
 
 test('inactive table card links Check In to booking detail page', function () {
@@ -47,6 +47,5 @@ test('inactive table card links Check In to booking detail page', function () {
         ->assertOk()
         ->assertSee('Check In')
         ->assertSee($showUrl)
-        ->assertDontSee('wire:click="openEdit');
+        ->assertDontSee('Assign Table');
 });
-

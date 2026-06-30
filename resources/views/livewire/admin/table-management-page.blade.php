@@ -58,8 +58,13 @@
             <div class="grid grid-cols-2 gap-6">
                 @foreach ($tables as $table)
                     @php
-                        $guestLabel = $table->latestBooking?->user?->name ?? 'Walk-in Customer';
                         $latestBooking = $table->latestBooking;
+                        $hasActiveBooking = $latestBooking && !in_array($latestBooking->booking_status, [
+                            \App\Models\Booking::BOOKING_STATUS_COMPLETED,
+                            \App\Models\Booking::BOOKING_STATUS_CANCELLED,
+                            \App\Models\Booking::BOOKING_STATUS_NO_SHOW,
+                        ]);
+                        $guestLabel = ($hasActiveBooking && $latestBooking->user) ? $latestBooking->user->name : 'Walk-in Customer';
                     @endphp
                     @if ($table->status === \App\Models\Table::STATUS_BOOKED)
                         <!-- Table Card: Occupied -->
@@ -71,6 +76,14 @@
                                 </div>
                                 <div class="flex shrink-0 items-center gap-1.5">
                                     <span class="rounded bg-[#025864] px-2 py-0.5 text-[10px] font-bold text-white">OCCUPIED</span>
+                                    <button
+                                        class="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-[#eff5f5] hover:text-[#025864]"
+                                        type="button"
+                                        wire:click="openEdit({{ $table->id }})"
+                                        title="Ubah meja"
+                                    >
+                                        <span class="material-symbols-outlined text-[20px]">edit</span>
+                                    </button>
                                     <button
                                         class="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-red-50 hover:text-red-600"
                                         type="button"
@@ -89,7 +102,7 @@
                                     {{ $table->capacity }} Guests
                                 </p>
                             </div>
-                            @if ($latestBooking)
+                            @if ($hasActiveBooking)
                                 <a
                                     class="block w-full rounded-full border border-[#025864]/35 bg-[#eff5f5] py-2.5 text-center text-xs font-bold text-[#025864] shadow-sm transition-all hover:bg-[#025864] hover:text-white"
                                     href="{{ route('admin.bookings.edit', $latestBooking) }}"
@@ -117,6 +130,14 @@
                                 </div>
                                 <div class="flex shrink-0 items-center gap-1.5">
                                     <span class="rounded bg-[#00A76F] px-2 py-0.5 text-[10px] font-bold text-white">AVAILABLE</span>
+                                    <button
+                                        class="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-[#eff5f5] hover:text-[#025864]"
+                                        type="button"
+                                        wire:click="openEdit({{ $table->id }})"
+                                        title="Ubah meja"
+                                    >
+                                        <span class="material-symbols-outlined text-[20px]">edit</span>
+                                    </button>
                                     <button
                                         class="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-red-50 hover:text-red-600"
                                         type="button"
@@ -154,6 +175,14 @@
                                 <div class="flex shrink-0 items-center gap-1.5">
                                     <span class="rounded bg-red-500 px-2 py-0.5 text-[10px] font-bold text-white">CLEANING</span>
                                     <button
+                                        class="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-[#eff5f5] hover:text-[#025864]"
+                                        type="button"
+                                        wire:click="openEdit({{ $table->id }})"
+                                        title="Ubah meja"
+                                    >
+                                        <span class="material-symbols-outlined text-[20px]">edit</span>
+                                    </button>
+                                    <button
                                         class="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-red-50 hover:text-red-600"
                                         type="button"
                                         wire:click.stop="delete({{ $table->id }})"
@@ -190,6 +219,14 @@
                                 <div class="flex shrink-0 items-center gap-1.5">
                                     <span class="rounded bg-[#F59E0B] px-2 py-0.5 text-[10px] font-bold text-white">RESERVED</span>
                                     <button
+                                        class="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-[#eff5f5] hover:text-[#025864]"
+                                        type="button"
+                                        wire:click="openEdit({{ $table->id }})"
+                                        title="Ubah meja"
+                                    >
+                                        <span class="material-symbols-outlined text-[20px]">edit</span>
+                                    </button>
+                                    <button
                                         class="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-red-50 hover:text-red-600"
                                         type="button"
                                         wire:click.stop="delete({{ $table->id }})"
@@ -207,7 +244,7 @@
                                     {{ $table->capacity }} Seats
                                 </p>
                             </div>
-                            @if ($latestBooking)
+                            @if ($hasActiveBooking)
                                 <a
                                     class="block w-full rounded-full border border-[#F59E0B]/50 bg-amber-50 py-2.5 text-center text-xs font-bold text-amber-900 transition-all hover:bg-[#F59E0B] hover:text-white"
                                     href="{{ route('admin.bookings.show', $latestBooking) }}"

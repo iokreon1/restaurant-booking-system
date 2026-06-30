@@ -164,7 +164,7 @@ test('admin bookings page always shows pagination summary in footer', function (
 
 test('admin can create and delete a booking', function () {
     $guest = User::factory()->create();
-    $table = Table::factory()->create();
+    $table = Table::factory()->create(['capacity' => 4]);
     $menuItem = MenuItem::factory()->create(['status' => MenuItem::STATUS_AVAILABLE]);
 
     Livewire::actingAs($this->admin)
