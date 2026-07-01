@@ -29,7 +29,7 @@ class BookingsPage extends Component
         $bookings = Booking::query()
             ->with(['user', 'table'])
             ->latest('created_at')
-            ->where('payment_status','=', Booking::PAYMENT_STATUS_PAID)
+            ->where('payment_status', '=', Booking::PAYMENT_STATUS_PAID)
             ->paginate(10);
 
         $today = now()->toDateString();
@@ -45,6 +45,6 @@ class BookingsPage extends Component
             'stats' => $stats,
         ])
             ->layout('layouts.dashboard')
-            ->title('Booking | Dapur Nabilah');
+            ->title('Booking | Empon Pawon');
     }
 }

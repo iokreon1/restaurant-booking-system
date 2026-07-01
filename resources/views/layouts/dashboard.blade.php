@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>@yield('title', $title ?? 'Workflow Management Hub - Dapur Nabilah')</title>
+    <title>@yield('title', $title ?? 'Workflow Management Hub - Empon Pawon')</title>
     @livewireScriptConfig
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles

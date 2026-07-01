@@ -144,7 +144,7 @@ class StaffPage extends Component
             'stats' => $stats,
         ])
             ->layout('layouts.dashboard')
-            ->title('Daftar Staff | Dapur Nabilah');
+            ->title('Daftar Staff | Empon Pawon');
     }
 
     private function resetForm(): void

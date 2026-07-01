@@ -209,6 +209,6 @@ class BookingCreatePage extends Component
             ],
         ])
             ->layout('layouts.dashboard')
-            ->title('Booking baru | Dapur Nabilah');
+            ->title('Booking baru | Empon Pawon');
     }
 }

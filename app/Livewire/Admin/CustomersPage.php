@@ -52,6 +52,6 @@ class CustomersPage extends Component
             'stats' => $stats,
         ])
             ->layout('layouts.dashboard')
-            ->title('Daftar Customer | Dapur Nabilah');
+            ->title('Daftar Customer | Empon Pawon');
     }
 }

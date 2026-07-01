@@ -191,7 +191,7 @@ class MenuItemsPage extends Component
             'stats' => $stats,
         ])
             ->layout('layouts.dashboard')
-            ->title('Menu Makanan | Dapur Nabilah');
+            ->title('Menu Makanan | Empon Pawon');
     }
 
     private function resetForm(): void

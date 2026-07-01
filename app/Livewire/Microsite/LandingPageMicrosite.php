@@ -45,7 +45,7 @@ class LandingPageMicrosite extends Component
     {
         return view('livewire.microsite.landing-page-microsite')
             ->layout('layouts.microsite')
-            ->title('Selamat Datang di Dapur Nabilah');
+            ->title('Selamat Datang di Empon Pawon');
     }
 
     private function baseMenuItemsQuery(): Builder

@@ -140,7 +140,7 @@ class TableManagementPage extends Component
             ],
         ])
             ->layout('layouts.dashboard')
-            ->title('Manajemen Meja | Dapur Nabilah');
+            ->title('Manajemen Meja | Empon Pawon');
     }
 
     private function resetForm(): void

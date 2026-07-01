@@ -69,7 +69,7 @@ class BookingShowPage extends Component
             ],
         ])
             ->layout('layouts.dashboard')
-            ->title('Detail booking | Dapur Nabilah');
+            ->title('Detail booking | Empon Pawon');
     }
 
     private function loadBookingRelations(Booking $booking): Booking

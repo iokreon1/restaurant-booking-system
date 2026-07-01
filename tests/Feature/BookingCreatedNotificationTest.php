@@ -34,7 +34,7 @@ it('builds kirimi message with booking details and payment url', function () {
         ->toContain('BK-TEST123')
         ->toContain('4')
         ->toContain('500.000')
-        ->toContain('Dapur Nabilah')
+        ->toContain('Empon Pawon')
         ->toContain($paymentUrl);
 });
 

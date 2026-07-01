@@ -157,6 +157,6 @@ class BookingEditPage extends Component
             'cartTotal' => $cartTotal,
         ])
             ->layout('layouts.dashboard')
-            ->title('Ubah pesanan | Dapur Nabilah');
+            ->title('Ubah pesanan | Empon Pawon');
     }
 }

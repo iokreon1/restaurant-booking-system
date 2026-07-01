@@ -1,5 +1,5 @@
 <div>
-    <x-microsite.header :title="'Dapur Nabilah'"
+    <x-microsite.header :title="'Empon Pawon'"
                         :show-cart="false"
                         :center-title="true"/>
 
@@ -10,7 +10,7 @@
             </div>
             <div class="bg-surface-container-lowest p-6 rounded-2xl shadow border border-outline-variant/20">
                 <h1 class="text-2xl font-extrabold text-primary leading-tight mb-2">
-                    Cita Rasa Otentik Nabilah
+                    Cita Rasa Otentik Empon Pawon
                 </h1>
                 <p class="text-on-surface-variant text-sm mb-6 leading-relaxed">
                     Nikmati hidangan warisan bumbu rempah pilihan langsung dari dapur kami.
@@ -91,10 +91,10 @@
             <span class="text-secondary font-bold tracking-widest uppercase text-[10px] mb-2 block">Cerita Kami</span>
             <h2 class="text-xl font-bold text-primary mb-3">Melestarikan Warisan Kuliner Melalui Setiap Sajian</h2>
             <div class="w-full h-40 rounded-xl overflow-hidden mb-4">
-                <img alt="Interior Dapur Nabilah" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV4mmdMieOrDNGabh_T9_A2OfcpNGr4r-LfL1ckHiQdAID-z2BNFvo-nalE9VRl9OTlLDvD-tNifxIa6ObqTa19HyOv55ol-fhdF2hG9zlergr1GDwaW9AlLnIAMVo9ISZRrZGWI38HpTTAEjfVXV7ZJiG5v-SUj1IgS6BCe8A6muOzd6Y4SCrM57miRmOrRqjhpF1L8xMpMPcfonH9Al2LqA9apDsxhHWaJhZEyCHVxZalUJAUnSD9VauG2qr2QFBPeueKHrisPs"/>
+                <img alt="Interior Empon Pawon" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV4mmdMieOrDNGabh_T9_A2OfcpNGr4r-LfL1ckHiQdAID-z2BNFvo-nalE9VRl9OTlLDvD-tNifxIa6ObqTa19HyOv55ol-fhdF2hG9zlergr1GDwaW9AlLnIAMVo9ISZRrZGWI38HpTTAEjfVXV7ZJiG5v-SUj1IgS6BCe8A6muOzd6Y4SCrM57miRmOrRqjhpF1L8xMpMPcfonH9Al2LqA9apDsxhHWaJhZEyCHVxZalUJAUnSD9VauG2qr2QFBPeueKHrisPs"/>
             </div>
             <p class="text-on-surface-variant text-sm leading-relaxed mb-6">
-                Dapur Nabilah lahir dari kerinduan akan masakan rumah yang kaya rempah. Kami berkomitmen untuk menjaga tradisi kuliner Indonesia.
+                Empon Pawon lahir dari kerinduan akan masakan rumah yang kaya rempah. Kami berkomitmen untuk menjaga tradisi kuliner Indonesia.
             </p>
             <div class="flex gap-8 pt-4 border-t border-outline-variant/20">
                 <div>
@@ -134,7 +134,7 @@
 
     <footer class="mt-4 w-full bg-tertiary text-on-tertiary p-6 pb-24">
         <div class="space-y-6 text-center">
-            <span class="text-lg font-bold text-tertiary-fixed">Dapur Nabilah</span>
+            <span class="text-lg font-bold text-tertiary-fixed">Empon Pawon</span>
             <p class="text-xs font-light opacity-80 leading-relaxed">
                 Menghadirkan kehangatan masakan Indonesia ke meja makan Anda.
             </p>
@@ -160,7 +160,7 @@
                     </ul>
                 </div>
             </div>
-            <p class="text-[10px] opacity-40 pt-4">© 2024 Dapur Nabilah. All rights reserved.</p>
+            <p class="text-[10px] opacity-40 pt-4">© 2024 Empon Pawon. All rights reserved.</p>
         </div>
     </footer>
 

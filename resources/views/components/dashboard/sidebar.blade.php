@@ -83,7 +83,7 @@
                         <span class="material-symbols-outlined">restaurant</span>
                     </div>
                     <div class="min-w-0" x-show="! collapsed" x-cloak>
-                        <span class="block text-lg font-semibold leading-tight tracking-tight text-[#003f48]">Dapur Nabilah</span>
+                        <span class="block text-lg font-semibold leading-tight tracking-tight text-[#003f48]">Empon Pawon</span>
                         <span class="block text-[10px] uppercase tracking-widest text-slate-500 opacity-70">Admin Panel</span>
                     </div>
                 </a>

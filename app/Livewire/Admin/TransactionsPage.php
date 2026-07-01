@@ -89,6 +89,6 @@ class TransactionsPage extends Component
             'paymentMethodChoices' => $paymentMethodChoices,
         ])
             ->layout('layouts.dashboard')
-            ->title('Transaksi | Dapur Nabilah');
+            ->title('Transaksi | Empon Pawon');
     }
 }

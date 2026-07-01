@@ -13,7 +13,7 @@
         <div class="flex items-center justify-between">
             <div>
                 <h2 class="text-3xl font-bold text-[#0A1628]">Workflow Management Hub</h2>
-                <p class="text-slate-500 font-medium">Selamat datang kembali, {{ $user->name }} 👋 • Pantau antrian dan selesaikan tugas operasional harian.</p>
+                <p class="text-slate-500 font-medium">Selamat datang kembali, {{ $user->name }} • Pantau antrian dan selesaikan tugas operasional harian.</p>
             </div>
             <div class="flex gap-3">
                 <a href="{{ route('admin.bookings.create') }}" class="bg-[#025864] text-white px-5 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 shadow-sm hover:opacity-90 transition-all">

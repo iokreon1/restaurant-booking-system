@@ -144,7 +144,7 @@ class MenuCategoriesPage extends Component
             'stats' => $stats,
         ])
             ->layout('layouts.dashboard')
-            ->title('Kategori Menu | Dapur Nabilah');
+            ->title('Kategori Menu | Empon Pawon');
     }
 
     private function resetForm(): void
